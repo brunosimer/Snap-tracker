@@ -285,7 +285,7 @@
     </div>
 
     <div class="yard-panel hidden" id="yardPanel">
-      <div class="yard-title" id="yardTitle">Quantas jazidas?</div>
+      <div class="yard-title" id="yardTitle">Quantas jardas?</div>
       <div class="yard-chips" id="yardChips"></div>
       <div class="yard-custom">
         <input type="number" id="yardCustom" placeholder="valor exato">
@@ -322,7 +322,7 @@
     </div>
 
     <div class="chart-card">
-      <div class="chart-title">Jazidas por quarter</div>
+      <div class="chart-title">Jardas por quarter</div>
       <canvas id="chartYardsQ" height="180"></canvas>
     </div>
 
@@ -519,7 +519,7 @@
     panel.classList.remove('hidden');
     const label = PLAY_LABELS[type];
     document.getElementById('yardTitle').textContent =
-      (type==='penalidade' ? 'Quantas jazidas de penalidade?' : `${label} — quantas jazidas?`);
+      (type==='penalidade' ? 'Quantas jardas de penalidade?' : `${label} — quantas jardas?`);
     const chipsWrap = document.getElementById('yardChips');
     chipsWrap.innerHTML = '';
     YARD_CHIPS_STD.forEach(y=>{
@@ -606,7 +606,7 @@
   // ---------- export CSV ----------
   document.getElementById('exportBtn').addEventListener('click', ()=>{
     if(state.plays.length===0){ showToast('Nada para exportar'); return; }
-    const header = ['snap','quarter','posse','tipo','jazidas','down_distance_antes','nota'];
+    const header = ['snap','quarter','posse','tipo','jardas','down_distance_antes','nota'];
     const rows = state.plays.map(p=>[
       p.snapNum, p.quarter, teamNameSafe(p.possession), PLAY_LABELS[p.type]||p.type,
       p.yards, p.downLabel, (p.note||'').replace(/,/g,';')
@@ -679,8 +679,8 @@
 
     document.getElementById('statCards').innerHTML = `
       <div class="stat-card"><div class="stat-num">${totalPlays}</div><div class="stat-label">Snaps</div></div>
-      <div class="stat-card"><div class="stat-num">${totalYards}</div><div class="stat-label">Jazidas totais</div></div>
-      <div class="stat-card"><div class="stat-num">${avgYards}</div><div class="stat-label">Jazidas / jogada</div></div>
+      <div class="stat-card"><div class="stat-num">${totalYards}</div><div class="stat-label">Jardas totais</div></div>
+      <div class="stat-card"><div class="stat-num">${avgYards}</div><div class="stat-label">Jardas / jogada</div></div>
       <div class="stat-card"><div class="stat-num">${turnovers}</div><div class="stat-label">Turnovers</div></div>
     `;
 
